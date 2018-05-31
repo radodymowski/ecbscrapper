@@ -5,26 +5,32 @@ from django.db import models
 
 
 class Currency(models.Model):
-    name = models.CharField(max_length=100, verbose_name=u'nazwa')
+    """
+    model of currency with name and shortened symbol name
+    """
+    name = models.CharField(max_length=100, verbose_name=u'name')
     symbol = models.CharField(max_length=3, verbose_name=u'symbol')
 
     class Meta:
-        verbose_name = u'Waluta'
-        verbose_name_plural = u'Waluty'
+        verbose_name = u'Currency'
+        verbose_name_plural = u'Currencies'
 
     def __str__(self):
         return u'{} ({})'.format(self.name, self.symbol)
 
 
 class ExchangeRate(models.Model):
-    currency = models.ForeignKey(Currency, verbose_name=u'waluta')
+    """
+    model of daily exchange rate: 1 EUR to related currency
+    """
+    currency = models.ForeignKey(Currency, verbose_name=u'currency')
 
-    euro_rate = models.FloatField(verbose_name=u'kurs za 1 euro')
-    date = models.DateField(verbose_name=u'data')
+    euro_rate = models.FloatField(verbose_name=u'1 euro rate')
+    date = models.DateField(verbose_name=u'date')
 
     class Meta:
-        verbose_name = u'kurs wymiany'
-        verbose_name_plural = u'kursy wymiany'
+        verbose_name = u'exchange rate'
+        verbose_name_plural = u'exchange rates'
 
     def __str__(self):
         return u'1 EUR = {} {} ({})'.format(self.euro_rate, self.currency.symbol, self.date)

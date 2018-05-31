@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.core.management.base import BaseCommand
 
-# TODO zamiast generować waluty można by np. scrappować je z listy linków z
+# TODO scrap the currencies from links list in instead of generating them from command
 # TODO https://www.ecb.europa.eu/home/html/rss.en.html
 from rates.models import Currency
 
 
 class Command(BaseCommand):
-    help = 'Skrypt do wygenerowania zestawu walut w bazie'
+    help = 'Generate sample list of currencies'
 
     CURRENCIES = [
         {'name': 'US dollar', 'symbol': 'USD'},

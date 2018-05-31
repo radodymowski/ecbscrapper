@@ -19,6 +19,7 @@ from rest_framework import routers
 
 from rates.views import ExchangeRateViewSet, CurrencyViewSet
 
+# not sure if viewsets from rates app should be defined in rates.urls.py
 router = routers.DefaultRouter()
 router.register(r'currencies', CurrencyViewSet)
 router.register(r'rates', ExchangeRateViewSet)
