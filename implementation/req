@@ -1,2 +1,5 @@
 Django==1.11.13
-pytz==2018.4
+django-extensions==2.0.7
+django-filter==1.1.0
+djangorestframework==3.8.2
+feedparser==5.2.1
