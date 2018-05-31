@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # projektowe
+    # external
+    'rest_framework',
+
+    # project
     'ecbscrapper',
     'rates',
 ]
